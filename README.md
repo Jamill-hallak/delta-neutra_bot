@@ -26,8 +26,8 @@ This project implements a vault that systematically earns funding fees from GMX'
 
 1. **Clone & Install**
    ```sh
-   git clone <repo-url>
-   cd delta-neutra
+   git clone https://github.com/Jamill-hallak/delta-neutra_bot.git
+   cd delta-neutra-bot
    forge install
    ```
 
