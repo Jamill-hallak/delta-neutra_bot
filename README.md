@@ -1,66 +1,47 @@
-## Foundry
+# Delta-Neutra GMX-v2 Vault
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
-Foundry consists of:
+This repository is my submission for the Cyfrin GMX Challenge. By building and demonstrating this delta-neutral funding fee farming vault on GMX v2.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+---
 
-## Documentation
+## Project Purpose
 
-https://book.getfoundry.sh/
+This project implements a vault that systematically earns funding fees from GMX's decentralized perpetuals exchange. The strategy is delta-neutral, meaning the position is not affected by ETH price movements—profit comes from funding fees, not speculation.
 
-## Usage
+---
 
-### Build
+## Core Strategy
 
-```shell
-$ forge build
-```
+- **Delta-Neutral Position:**  
+  The vault shorts ETH using ETH as collateral at 1x leverage, making the position price-neutral.
+- **Funding Fee Farming:**  
+  The vault enters positions only when funding rates favor shorts (longs pay shorts), capturing funding fees as yield.
+- **Automated Management:**  
+  The vault monitors funding rates, manages positions, and tracks costs (borrowing, price impact) to maximize net profit.
 
-### Test
+---
 
-```shell
-$ forge test
-```
+## Quick Start
 
-### Format
+1. **Clone & Install**
+   ```sh
+   git clone <repo-url>
+   cd delta-neutra
+   forge install
+   ```
 
-```shell
-$ forge fmt
-```
+2. **Configure Environment**
+   Create a `.env` file in the project root:
+   ```
+   FORK_URL=
+   FORK_BLOCK_NUM=351699610
+   ```
 
-### Gas Snapshots
+3. **Build & Test**
+   ```sh
+   forge build
+   forge test
+   ```
 
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+---
