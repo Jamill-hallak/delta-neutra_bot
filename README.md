@@ -1,6 +1,6 @@
 # Delta-Neutra GMX-v2 Vault
 
-
+![Funding Fee Vault Architecture](./app.png)
 This repository is my submission for the Cyfrin GMX Challenge. By building and demonstrating this delta-neutral funding fee farming vault on GMX v2.
 
 ---
