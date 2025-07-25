@@ -2,12 +2,12 @@
 pragma solidity 0.8.26;
 
 import {console} from "forge-std/Test.sol";
-import {IERC20} from "../../interfaces/IERC20.sol";
-import {Math} from "../../lib/Math.sol";
-import {IStrategy} from "../../lib/app/IStrategy.sol";
-import {IVault} from "../../lib/app/IVault.sol";
-import {Auth} from "../../lib/app/Auth.sol";
-import "../../Constants.sol";
+import {IERC20} from "../interfaces/IERC20.sol";
+import {Math} from "../lib/Math.sol";
+import {IStrategy} from "../lib/app/IStrategy.sol";
+import {IVault} from "../lib/app/IVault.sol";
+import {Auth} from "../lib/app/Auth.sol";
+import "../Constants.sol";
 
 contract Vault is Auth {
     uint256 private constant DECIMAL_OFFSET = 6;
